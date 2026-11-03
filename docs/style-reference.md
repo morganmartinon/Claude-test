@@ -45,20 +45,22 @@ Deux formats différents, tous deux en 1080x1920, 30 fps, environ 24 secondes, a
 - Les textes sont courts, avec emojis, en bas de l'image mais au-dessus de la zone cachée par l'interface Instagram
 - Les plans sont simples et propres, sans surcharge d'effets, sauf le modèle 1 (showroom) qui est plus cinématographique
 
-## Audio des trois modèles (mesuré, pas écouté)
-| Reel | Volume moyen | Tempo estimé | Remarque |
+## Origine et audio des trois modèles
+| Reel | Origine du montage | Musique | Volume mesuré |
 |---|---|---|---|
-| Hyundai | -15 LUFS | environ 72 BPM (ou 144) | volume stable, plutôt calme |
-| Peugeot 2008 | -10 LUFS | environ 160 BPM | fort et constant, plus d'énergie dans la seconde moitié |
-| Leur bureau / Le mien | -13 LUFS | non fiable | fort sur les 6 premières secondes (bureau), nettement plus doux ensuite |
+| Hyundai | modèle CapCut | « Gangsta's Paradise » (Coolio) | -15 LUFS |
+| Peugeot 2008 | modèle CapCut | « Black and Yellow » (Wiz Khalifa) | -10 LUFS |
+| Leur bureau / Le mien | montage manuel de Morgan | sons (effets, ambiance) choisis par lui | -13 LUFS |
 
-- Les tempos viennent d'une estimation automatique, ils sont à confirmer
-- Je ne peux pas identifier les morceaux : le nom des musiques est à donner par toi
+- Les deux premiers reels viennent de modèles CapCut : les coupes, les effets et les transitions sont calés sur la musique par le modèle
+- Mon estimation automatique des tempos (72 et 160 BPM) était peu fiable, à ignorer ; les tempos réels viennent des morceaux eux-mêmes
+- Les musiques ne sont pas stockées dans le dépôt (droits d'auteur) : elles sont ajoutées à la main dans CapCut ou dans Instagram au moment de publier
+- Pour « Leur bureau / Le mien », fort pendant le bureau (6 premières secondes), plus doux ensuite
 - Règle pour l'assembleur : viser environ -12 à -10 LUFS pour rester proche de tes reels, crêtes sous -1 dBFS
 - Pour « Leur bureau / Le mien », le changement de son tombe sur la coupe à 6,3 s
 
 ## À préciser avec toi
-- Noms des musiques que tu utilises et où les récupérer (bibliothèque Instagram, fichiers à toi)
+- Quel modèle CapCut reproduire (nom ou lien), pour copier ses coupes et effets
 - Textes éventuels et logo de fin
 - Durée cible des prochains reels
 
