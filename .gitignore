@@ -4,3 +4,5 @@ input/*.mov
 work/clips/
 work/*.mp4
 output/*.mp4
+work/*.wav
+work/beat_segments/
