@@ -23,7 +23,7 @@ Analyse de `2026-10-31-152602551.mp4` fournie comme modèle.
 
 # Tes propres reels (modèles 2 et 3)
 
-Deux formats différents, tous deux en 1080x1920, 30 fps, environ 24 secondes, sans piste audio (la musique est à ajouter à l'export).
+Deux formats différents, tous deux en 1080x1920, 30 fps, environ 24 secondes, avec piste audio AAC stéréo 44,1 kHz.
 
 ## Modèle 2 : avant / après nettoyage intérieur (`2026-10-25-121008245.mp4`, Peugeot 2008)
 - **Début** : fondu depuis le noir sur l'intérieur sale (tapis poussiéreux, seuil de porte, sièges)
@@ -45,8 +45,20 @@ Deux formats différents, tous deux en 1080x1920, 30 fps, environ 24 secondes, s
 - Les textes sont courts, avec emojis, en bas de l'image mais au-dessus de la zone cachée par l'interface Instagram
 - Les plans sont simples et propres, sans surcharge d'effets, sauf le modèle 1 (showroom) qui est plus cinématographique
 
+## Audio des trois modèles (mesuré, pas écouté)
+| Reel | Volume moyen | Tempo estimé | Remarque |
+|---|---|---|---|
+| Hyundai | -15 LUFS | environ 72 BPM (ou 144) | volume stable, plutôt calme |
+| Peugeot 2008 | -10 LUFS | environ 160 BPM | fort et constant, plus d'énergie dans la seconde moitié |
+| Leur bureau / Le mien | -13 LUFS | non fiable | fort sur les 6 premières secondes (bureau), nettement plus doux ensuite |
+
+- Les tempos viennent d'une estimation automatique, ils sont à confirmer
+- Je ne peux pas identifier les morceaux : le nom des musiques est à donner par toi
+- Règle pour l'assembleur : viser environ -12 à -10 LUFS pour rester proche de tes reels, crêtes sous -1 dBFS
+- Pour « Leur bureau / Le mien », le changement de son tombe sur la coupe à 6,3 s
+
 ## À préciser avec toi
-- Musique utilisée et son rythme (non analysé)
+- Noms des musiques que tu utilises et où les récupérer (bibliothèque Instagram, fichiers à toi)
 - Textes éventuels et logo de fin
 - Durée cible des prochains reels
 
