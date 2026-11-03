@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Monte un reel dont chaque coupe tombe sur un temps du morceau.
 
-Usage : python3 tools/montage_beat.py MUSIQUE.wav SORTIE_AVEC_MUSIQUE.mp4 SORTIE_SANS_MUSIQUE.mp4 [BPM]
+Usage : python3 tools/montage_beat.py MUSIQUE.wav AVEC.mp4 SANS.mp4 [BPM] [TIMELINE.json] [DOSSIER_PLANS]
+
+TIMELINE.json (facultatif) : liste de [plan, début_s, nb_temps, punch, tremblement_px, glitch, flash]
+où plan est un nom de fichier du dossier de plans (ex. "A.mp4"). Sans JSON, la liste
+ci-dessous est utilisée avec les plans plan_NN.mp4 de work/clips/.
 
 Prend les plans déjà découpés (SDR, 1080x1920, 30 fps) dans work/clips/ et applique,
 plan par plan : zoom « punch » au début, tremblement, flash blanc, glitch RGB.
@@ -41,6 +45,12 @@ TIMELINE = [
     (1, 1.2, 1, 0.20, 14, True, False),    # 23-24
     (9, 0.0, 4, 0.12, 0, False, True),     # 24-28 plan final + image figée
 ]
+if len(sys.argv) > 5:
+    import json
+    with open(sys.argv[5]) as fj:
+        TIMELINE = [tuple(e) for e in json.load(fj)]
+if len(sys.argv) > 6:
+    CLIPS = os.path.abspath(sys.argv[6])
 HOLD_LAST = 0.5   # image figée à la fin du dernier plan (le plan dure moins que 4 temps)
 
 
@@ -60,7 +70,7 @@ def duration(path):
 
 segs = []
 for i, (plan, off, beats, punch, shake, glitch, flash) in enumerate(TIMELINE):
-    src = os.path.join(CLIPS, f"plan_{plan:02d}.mp4")
+    src = os.path.join(CLIPS, plan if isinstance(plan, str) else f"plan_{plan:02d}.mp4")
     dur = beats * BEAT
     last = i == len(TIMELINE) - 1
     avail = duration(src)
