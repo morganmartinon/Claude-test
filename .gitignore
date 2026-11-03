@@ -1,0 +1,6 @@
+# Fichiers vidéo volumineux : ne pas versionner
+input/*.mp4
+input/*.mov
+work/clips/
+work/*.mp4
+output/*.mp4
