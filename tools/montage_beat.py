@@ -69,9 +69,17 @@ def duration(path):
 
 
 segs = []
+cum_beats = 0
+prev_frames = 0
 for i, (plan, off, beats, punch, shake, glitch, flash) in enumerate(TIMELINE):
     src = os.path.join(CLIPS, plan if isinstance(plan, str) else f"plan_{plan:02d}.mp4")
     dur = beats * BEAT
+    # nombre d'images par arrondi CUMULÉ : une coupe tombe toujours à ±17 ms du temps,
+    # sans dérive (un temps vaut rarement un nombre entier d'images, ex. 14,17 à 127 BPM)
+    cum_beats += beats
+    end_frame = round(cum_beats * BEAT * 30)
+    nframes = end_frame - prev_frames
+    prev_frames = end_frame
     last = i == len(TIMELINE) - 1
     avail = duration(src)
     need = dur - (HOLD_LAST if last else 0)
@@ -79,7 +87,7 @@ for i, (plan, off, beats, punch, shake, glitch, flash) in enumerate(TIMELINE):
     z = f"(1.05+0.04*t/{dur:.3f}+{punch}*max(0,1-t/0.22))"
     vf = []
     if last:
-        vf.append(f"tpad=stop_mode=clone:stop_duration={HOLD_LAST}")
+        vf.append(f"tpad=stop_mode=clone:stop_duration={HOLD_LAST + 0.3}")
     vf.append(f"scale=w='trunc(1080*{z}/2)*2':h='trunc(1920*{z}/2)*2':eval=frame")
     vf.append(f"crop=1080:1920:x='(iw-1080)/2+{shake}*sin(t*85)*max(0,1-t/0.2)':"
               f"y='(ih-1920)/2+{shake * 0.6:.1f}*cos(t*97)*max(0,1-t/0.2)'")
@@ -89,9 +97,9 @@ for i, (plan, off, beats, punch, shake, glitch, flash) in enumerate(TIMELINE):
         vf.append("fade=t=in:st=0:d=0.16:color=white")
     vf.append("format=yuv420p")
     path = os.path.join(TMP, f"seg_{i:02d}.mp4")
-    run(["ffmpeg", "-v", "error", "-y", "-ss", f"{off:.3f}", "-t", f"{dur:.3f}", "-i", src, "-an",
-         "-vf", ",".join(vf), "-r", "30", "-c:v", "libx264", "-crf", "17", "-preset", "veryfast",
-         "-pix_fmt", "yuv420p", path])
+    run(["ffmpeg", "-v", "error", "-y", "-ss", f"{off:.3f}", "-t", f"{dur + 0.1:.3f}", "-i", src, "-an",
+         "-vf", ",".join(vf), "-r", "30", "-frames:v", str(nframes), "-c:v", "libx264", "-crf", "17",
+         "-preset", "veryfast", "-pix_fmt", "yuv420p", path])
     segs.append(path)
     print(f"plan {plan} segment {i + 1}/{len(TIMELINE)} ok")
 
