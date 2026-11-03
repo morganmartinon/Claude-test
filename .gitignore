@@ -6,3 +6,5 @@ work/*.mp4
 output/*.mp4
 work/*.wav
 work/beat_segments/
+work/clips_vw/
+input/*.mp4
