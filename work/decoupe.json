@@ -1,0 +1,15 @@
+{
+  "traitement": "scale+crop 1080x1920, tonemap HDR10 PQ -> SDR BT.709 (hable), fps 30, sans son, libx264 crf 18",
+  "plans": [
+    {"fichier": "clips/plan_01.mp4", "source": "input/20261029_204946.mp4", "debut": 0.3, "duree": 2.0, "description": "Gros plan phare avant et capot brillant (ouverture)"},
+    {"fichier": "clips/plan_02.mp4", "source": "input/20261029_205006.mp4", "debut": 0.5, "duree": 1.5, "description": "Feu arrière LED, reflets carrosserie"},
+    {"fichier": "clips/plan_03.mp4", "source": "input/20261029_205105.mp4", "debut": 0.0, "duree": 1.8, "description": "Aile avant et capot, reflets"},
+    {"fichier": "clips/plan_04.mp4", "source": "input/20261029_204946.mp4", "debut": 2.8, "duree": 2.0, "description": "Roue et aile avant"},
+    {"fichier": "clips/plan_05.mp4", "source": "input/20261029_205105.mp4", "debut": 4.0, "duree": 2.0, "description": "Rétroviseur et flanc"},
+    {"fichier": "clips/plan_06.mp4", "source": "input/20261029_205128.mp4", "debut": 0.0, "duree": 2.0, "description": "Poignée de porte, reflets portière"},
+    {"fichier": "clips/plan_07.mp4", "source": "input/20261029_205046.mp4", "debut": 0.5, "duree": 1.5, "description": "Intérieur propre, banquette arrière"},
+    {"fichier": "clips/plan_08.mp4", "source": "input/20261029_205105.mp4", "debut": 6.0, "duree": 2.0, "description": "Flanc 3/4 arrière, vitres"},
+    {"fichier": "clips/plan_09.mp4", "source": "input/20261029_204934.mp4", "debut": 1.5, "duree": 1.9, "description": "Plan large final de la voiture"}
+  ],
+  "duree_totale": 16.7
+}
